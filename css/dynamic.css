@@ -1,0 +1,7 @@
+/* 示例：将图片设置为页面背景 */
+body {
+    background-image: url("/images/starry_bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* 固定背景，滚动时图片不动 */
+    background-size: cover; /* 覆盖整个区域 */
+}
