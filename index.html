@@ -148,8 +148,9 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/tags/">
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -204,7 +205,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-05 08:50:16 / 修改时间：08:56:02" itemprop="dateCreated datePublished" datetime="2025-12-05T08:50:16+08:00">2025-12-05</time>
+      <time title="创建时间：2025-12-05 08:50:16 / 修改时间：09:25:46" itemprop="dateCreated datePublished" datetime="2025-12-05T08:50:16+08:00">2025-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,22 +263,57 @@
 <p>Markdown</p>
 <hr>
 <h2 id="title-监控利器之-grafana-与-mysql-整合实战date-2021-06-20tags-apm-grafana-mysql-监控-这里定义了标签"><a href="#title-监控利器之-grafana-与-mysql-整合实战date-2021-06-20tags-apm-grafana-mysql-监控-这里定义了标签" class="headerlink" title="title: 监控利器之 grafana 与 mysql 整合实战date: 2021-06-20tags: [apm, grafana, mysql, 监控] # 这里定义了标签"></a>title: 监控利器之 grafana 与 mysql 整合实战<br>date: 2021-06-20<br>tags: [apm, grafana, mysql, 监控] # 这里定义了标签</h2><h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>… 您的文章内容 …<br>步骤六：本地预览与部署</p>
-<ol>
-<li>本地预览<br>在项目根目录运行以下命令，即可在本地浏览器中预览效果：</li>
-</ol>
+<h2 id="1-本地预览"><a href="#1-本地预览" class="headerlink" title="1. 本地预览"></a>1. 本地预览</h2><p>在项目根目录运行以下命令，即可在本地浏览器中预览效果：</p>
 <p>Bash</p>
 <p>hexo clean # 清除缓存<br>hexo generate # 简称 hexo g，生成静态文件<br>hexo server # 简称 hexo s，启动本地服务器<br>访问浏览器地址 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可查看您的博客。</p>
-<ol start="2">
-<li>部署到互联网<br>静态博客最常用且免费的部署方式是使用 GitHub Pages 或 Vercel&#x2F;Netlify。</li>
-</ol>
-<p>安装部署插件：</p>
+<h2 id="2-卸载冲突插件（可选，但推荐）"><a href="#2-卸载冲突插件（可选，但推荐）" class="headerlink" title="2. 卸载冲突插件（可选，但推荐）"></a>2. 卸载冲突插件（可选，但推荐）</h2><p>如果您的博客安装了其他类似的图片路径处理插件（例如 hexo-asset-image），为避免冲突，我们先移除它。</p>
+<p>在博客根目录下运行：</p>
 <p>Bash</p>
+<p>npm uninstall hexo-asset-image</p>
+<h3 id="2-1-安装推荐插件"><a href="#2-1-安装推荐插件" class="headerlink" title="2.1. 安装推荐插件"></a>2.1. 安装推荐插件</h3><p>我们安装一个专门处理 asset_img 标签的插件，它可以更好地兼容 NexT 主题。</p>
+<p>在博客根目录下运行：</p>
+<p>Bash</p>
+<p>npm install hexo-asset-img –save<br>（注意：这个插件名是 hexo-asset-img，与上面卸载的 hexo-asset-image 略有不同，但功能类似且更为稳定。）</p>
+<h3 id="2-2-再次确认配置和使用方法"><a href="#2-2-再次确认配置和使用方法" class="headerlink" title="2.2. 再次确认配置和使用方法"></a>2.2. 再次确认配置和使用方法</h3><p>A. 确认配置：</p>
+<p>站点配置文件 (_config.yml - 根目录) 中：</p>
+<p>YAML</p>
+<p>post_asset_folder: true<br>文件结构：</p>
+<p>.<br>└── source&#x2F;<br>    └── _posts&#x2F;<br>        ├── MyNewPost.md       &lt;– 文章文件<br>        └── MyNewPost&#x2F;         &lt;– 资源文件夹 (与文章文件同名)<br>            └── demo.jpg       &lt;– 图片文件<br>B. 确认语法： 在 MyNewPost.md 中，引用时只需写文件名，不需要写路径：</p>
+<p>Markdown</p>
+
+<h3 id="2-3-清理并重新生成"><a href="#2-3-清理并重新生成" class="headerlink" title="2.3. 清理并重新生成"></a>2.3. 清理并重新生成</h3><p>在终端执行：</p>
+<p>Bash</p>
+<p>hexo clean<br>hexo g<br>hexo s</p>
+<h1 id="3-部署到互联网"><a href="#3-部署到互联网" class="headerlink" title="3. 部署到互联网"></a>3. 部署到互联网</h1><h2 id="确保“分类”总页面已开启"><a href="#确保“分类”总页面已开启" class="headerlink" title="确保“分类”总页面已开启"></a>确保“分类”总页面已开启</h2><p>首先，你必须确保 Hexo 的分类功能已经初始化（如果你之前只创建了 springboot 或 linux 的独立页面，可能漏了这一步）。</p>
+<p>在博客根目录打开终端，输入：</p>
+<p>Bash</p>
+<p>hexo new page categories<br>打开生成的 source&#x2F;categories&#x2F;index.md 文件，内容修改如下：</p>
+<p>YAML</p>
+<hr>
+<h2 id="title-categoriesdate-2025-12-04-14-25-53type-“categories”"><a href="#title-categoriesdate-2025-12-04-14-25-53type-“categories”" class="headerlink" title="title: categoriesdate: 2025-12-04 14:25:53type: “categories”  &lt;– 这一行最重要，不能少"></a>title: categories<br>date: 2025-12-04 14:25:53<br>type: “categories”  &lt;– 这一行最重要，不能少</h2><p>（注意：此时你访问 &#x2F;categories&#x2F; 是可以看到总分类页的，但 &#x2F;categories&#x2F;project&#x2F; 依然会报错，直到你做了第二步。）</p>
+<p>第二步：写一篇属于该分类的文章（关键）<br>Hexo 需要至少一篇文章标记为 project，它才会自动生成 &#x2F;categories&#x2F;project&#x2F; 这个路径的 HTML 文件。</p>
+<p>新建一篇文章（或者打开一篇现有的）：</p>
+<p>Bash</p>
+<h2 id="hexo-new-“我的项目演示”"><a href="#hexo-new-“我的项目演示”" class="headerlink" title="hexo new “我的项目演示”"></a>hexo new “我的项目演示”</h2><p>打开这篇文章（在 source&#x2F;_posts&#x2F; 下），在顶部的 Front-matter（头部配置区）添加 categories：</p>
+<p>YAML</p>
+<hr>
+<h2 id="title-我的项目演示date-2025-12-04-15-00-00categories-project"><a href="#title-我的项目演示date-2025-12-04-15-00-00categories-project" class="headerlink" title="title: 我的项目演示date: 2025-12-04 15:00:00categories:  - project   &lt;– 这里必须和你在菜单里填写的路径名一致tags:  - java"></a>title: 我的项目演示<br>date: 2025-12-04 15:00:00<br>categories:<br>  - project   &lt;– 这里必须和你在菜单里填写的路径名一致<br>tags:<br>  - java</h2><p>这是我的第一个项目文章内容…<br>第三步：清理并重启<br>修改完后，必须重新生成一遍才能生效。</p>
+<h2 id="在终端执行："><a href="#在终端执行：" class="headerlink" title="在终端执行："></a>在终端执行：</h2><p>Bash</p>
+<p>hexo clean<br>hexo g<br>hexo s<br>现在，再次点击菜单里的 “project”，或者访问 <a target="_blank" rel="noopener" href="http://localhost:4000/categories/project/%EF%BC%8C%E4%BD%A0%E5%BA%94%E8%AF%A5%E8%83%BD%E7%9C%8B%E5%88%B0%E9%A1%B5%E9%9D%A2%E4%BA%86%EF%BC%8C%E9%A1%B5%E9%9D%A2%E9%87%8C%E4%BC%9A%E5%88%97%E5%87%BA%E5%88%9A%E6%89%8D%E9%82%A3%E7%AF%87%E2%80%9C%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA%E2%80%9D%E6%96%87%E7%AB%A0%E3%80%82">http://localhost:4000/categories/project/，你应该能看到页面了，页面里会列出刚才那篇“我的项目演示”文章。</a></p>
+<p>静态博客最常用且免费的部署方式是使用 GitHub Pages 或 Vercel&#x2F;Netlify。</p>
+<h2 id="安装部署插件："><a href="#安装部署插件：" class="headerlink" title="安装部署插件："></a>安装部署插件：</h2><p>Bash</p>
 <p>npm install hexo-deployer-git –save<br>配置部署信息： 修改主配置文件 _config.yml：</p>
 <p>YAML</p>
 <h1 id="文件-blog-config-yml-1"><a href="#文件-blog-config-yml-1" class="headerlink" title="文件: blog&#x2F;_config.yml"></a>文件: blog&#x2F;_config.yml</h1><p>deploy:<br>  type: git</p>
 <h1 id="替换为您的-GitHub-Page-仓库地址"><a href="#替换为您的-GitHub-Page-仓库地址" class="headerlink" title="替换为您的 GitHub Page 仓库地址"></a>替换为您的 GitHub Page 仓库地址</h1><p>  repo: &lt;您的GitHub Pages仓库URL&gt;<br>  branch: main # 或 gh-pages<br>一键部署：</p>
 <p>Bash</p>
 <p>hexo deploy # 简称 hexo d</p>
+<h1 id="配置-Git-用户身份"><a href="#配置-Git-用户身份" class="headerlink" title="配置 Git 用户身份"></a>配置 Git 用户身份</h1><p>您只需按照提示，在您的 Windows 命令行（PowerShell 或 Command Prompt）中运行两条命令，设置您的全局 Git 用户名和电子邮件地址即可。</p>
+<p>设置用户电子邮件： 将下面的 “<a href="mailto:&#121;&#111;&#117;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#121;&#111;&#117;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a>“ 替换为您自己的邮箱地址。</p>
+<p>Bash</p>
+<p>git config –global user.email “<a href="mailto:&#x79;&#111;&#x75;&#114;&#95;&#101;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;">&#x79;&#111;&#x75;&#114;&#95;&#101;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a>“<br>设置用户名称： 将 “Your Name” 替换为您的名字或您希望显示的用户名。</p>
+<p>Bash</p>
+<p>git config –global user.name “Your Name”</p>
 
       
     </div>
