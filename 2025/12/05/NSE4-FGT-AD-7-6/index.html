@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="FortiGate Infrastructure 7.6FortiGate Security 7.6FortiGate LAB">
+    <meta name="description" content="FortiGate Infrastructure  System&amp;Network&amp;Setting接口下 Administrative Access FTM 当Fortitoken连接时需要打开接口下 Administrative Access FMG-Access 只用来连接Fortimanage时需要打开接口下 Administrative Access Security Fab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSE4_FGT_AD-7.6">
 <meta property="og:url" content="http://example.com/2025/12/05/NSE4-FGT-AD-7-6/index.html">
 <meta property="og:site_name" content="子淳的博客">
-<meta property="og:description" content="FortiGate Infrastructure 7.6FortiGate Security 7.6FortiGate LAB">
+<meta property="og:description" content="FortiGate Infrastructure  System&amp;Network&amp;Setting接口下 Administrative Access FTM 当Fortitoken连接时需要打开接口下 Administrative Access FMG-Access 只用来连接Fortimanage时需要打开接口下 Administrative Access Security Fab">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-05T02:13:14.000Z">
-<meta property="article:modified_time" content="2025-12-05T02:19:48.674Z">
+<meta property="article:modified_time" content="2025-12-26T11:55:21.382Z">
 <meta property="article:author" content="子淳">
 <meta property="article:tag" content="FortiGate">
 <meta name="twitter:card" content="summary">
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FortiGate-Infrastructure-7-6"><span class="nav-number">1.</span> <span class="nav-text">FortiGate Infrastructure 7.6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">1.1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FortiGate-Security-7-6"><span class="nav-number">2.</span> <span class="nav-text">FortiGate Security 7.6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">2.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#-3"><span class="nav-number">2.1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FortiGate-LAB"><span class="nav-number">3.</span> <span class="nav-text">FortiGate LAB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#-4"><span class="nav-number">3.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#-5"><span class="nav-number">3.1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FortiGate-Infrastructure"><span class="nav-number">1.</span> <span class="nav-text">FortiGate Infrastructure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Network-Setting"><span class="nav-number">1.1.</span> <span class="nav-text">System&amp;Network&amp;Setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Firewall-Policies-and-NAT"><span class="nav-number">1.2.</span> <span class="nav-text">Firewall Policies and NAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Routing"><span class="nav-number">1.3.</span> <span class="nav-text">Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Authentication"><span class="nav-number">1.4.</span> <span class="nav-text">Authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fortinet-Single-Sign-On-FSSO"><span class="nav-number">1.5.</span> <span class="nav-text">Fortinet Single Sign-On(FSSO)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Antivirus-Web-Filtering"><span class="nav-number">1.6.</span> <span class="nav-text">Antivirus &amp; Web Filtering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Certificate"><span class="nav-number">1.7.</span> <span class="nav-text">Certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPS-adn-Application-Control"><span class="nav-number">1.8.</span> <span class="nav-text">IPS adn Application Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-VPN"><span class="nav-number">1.9.</span> <span class="nav-text">SSL VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IPsec-VPN"><span class="nav-number">1.10.</span> <span class="nav-text">IPsec VPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SDWAN"><span class="nav-number">1.11.</span> <span class="nav-text">SDWAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Fabric"><span class="nav-number">1.12.</span> <span class="nav-text">Security Fabric</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Availability"><span class="nav-number">1.13.</span> <span class="nav-text">High Availability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diagnostics-and-Troubleshooting"><span class="nav-number">1.14.</span> <span class="nav-text">Diagnostics and Troubleshooting</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -144,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -155,7 +155,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-12-05 10:13:14 / 修改时间：10:19:48" itemprop="dateCreated datePublished" datetime="2025-12-05T10:13:14+08:00">2025-12-05</time>
+      <time title="创建时间：2025-12-05 10:13:14" itemprop="dateCreated datePublished" datetime="2025-12-05T10:13:14+08:00">2025-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-26 19:55:21" itemprop="dateModified" datetime="2025-12-26T19:55:21+08:00">2025-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -233,7 +239,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="FortiGate-Infrastructure-7-6"><a href="#FortiGate-Infrastructure-7-6" class="headerlink" title="FortiGate Infrastructure 7.6"></a>FortiGate Infrastructure 7.6</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h1 id="FortiGate-Security-7-6"><a href="#FortiGate-Security-7-6" class="headerlink" title="FortiGate Security 7.6"></a>FortiGate Security 7.6</h1><h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><h1 id="FortiGate-LAB"><a href="#FortiGate-LAB" class="headerlink" title="FortiGate LAB"></a>FortiGate LAB</h1><h2 id="-4"><a href="#-4" class="headerlink" title=""></a></h2><h3 id="-5"><a href="#-5" class="headerlink" title=""></a></h3>
+    <div class="post-body" itemprop="articleBody"><h1 id="FortiGate-Infrastructure"><a href="#FortiGate-Infrastructure" class="headerlink" title="FortiGate Infrastructure"></a>FortiGate Infrastructure</h1>
+
+<h2 id="System-Network-Setting"><a href="#System-Network-Setting" class="headerlink" title="System&amp;Network&amp;Setting"></a>System&amp;Network&amp;Setting</h2><p>接口下 Administrative Access FTM 当Fortitoken连接时需要打开<br>接口下 Administrative Access FMG-Access 只用来连接Fortimanage时需要打开<br>接口下 Administrative Access Security Fabiric 用来连接 Fortinet 各个产品之间的联动、遥测（Telemetry）和拓扑同步</p>
+<h2 id="Firewall-Policies-and-NAT"><a href="#Firewall-Policies-and-NAT" class="headerlink" title="Firewall Policies and NAT"></a>Firewall Policies and NAT</h2><p>防火墙策略配置下，当不知道Policy ID使用了多少，可以使用edit 0来让系统自动提供一个可用ID<br>防火墙安全策略中，通过右边选取BY Sequence的方式，可以查看策略匹配顺序情况<br>NAT overload 用于办公环境，one to one用于dmz服务器区<br>VIP 开启Port Forwarding，外部地址端口映射到内部主机<br>match-vip 当VIP上一条拒绝所有的地址访问，但允许访问特定地址，需要在上一条策略中开启禁用匹配VIP意味着FortiGate在政策评估时不要同时检查VIP。注意，match-vip 设置仅在防火墙策略作设置为 DENY 时可用<br>arp-reply 默认是开启状态，当在上游ISP router与Forit之间，ISP将公共子网分配给客户，但是没有该子网的静态路由，以便于生成ARP请求。已解析子网中任意地址的MAC地址</p>
+<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a>Routing</h2><p>同时可以根据FQDN、internet Service来配置静态明细路由</p>
+<h2 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h2><p>FortiToken软件目前没法迁移，比如Foti100E上200个token，不能将软token迁移到forti200E<br>FAC 身份认证服务器进行绑定</p>
+<h2 id="Fortinet-Single-Sign-On-FSSO"><a href="#Fortinet-Single-Sign-On-FSSO" class="headerlink" title="Fortinet Single Sign-On(FSSO)"></a>Fortinet Single Sign-On(FSSO)</h2><p>FSSO  agent安装,需要有一个可以读取日志的权限<br>combination用户排除，不想对某些用户进行无感知认证</p>
+<h2 id="Antivirus-Web-Filtering"><a href="#Antivirus-Web-Filtering" class="headerlink" title="Antivirus &amp; Web Filtering"></a>Antivirus &amp; Web Filtering</h2><p>对延时敏感开流模式，对安全检查要求高的开代理模式</p>
+<h2 id="Certificate"><a href="#Certificate" class="headerlink" title="Certificate"></a>Certificate</h2><p>subject or san对返回的SNI字段进行验证，通过sni中获得他的url<br>没有导入用户的证书，建议客户导入证书<br>老的系统如win7 没有sni识别标记，需要服务器数字证书进行签名和验证<br>web过滤和用户验证 会遇到SSL证书检测<br>SSL深度检测，forti启用到类似代理的重用用自己的key进行加密&#x2F;解密 （会有延迟）<br>分为两类检测：流模式检测和深度检测<br>开启7层检测，需要用户有证书，必须导入，换证书需要进行自定义克隆进行修改，需深入了解，查看RFC5280</p>
+<h2 id="IPS-adn-Application-Control"><a href="#IPS-adn-Application-Control" class="headerlink" title="IPS adn Application Control"></a>IPS adn Application Control</h2><p>上面宽泛，下面明细，可以上面对特定的进行证书检测，最下面对所有做深度检测<br>IPS引擎：AV，appcontrol（始终基于流模式），自定义优先级高于categories分类优先级<br>进行抓包，通过Forti团队再去写对应的应用特征签名</p>
+<h2 id="SSL-VPN"><a href="#SSL-VPN" class="headerlink" title="SSL VPN"></a>SSL VPN</h2><p>FortiOS 7.6.3之后没有免费的SSLVPN，要用使用收费的Forticlient VPN，直接用IPsec<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125">https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125</a></p>
+<h2 id="IPsec-VPN"><a href="#IPsec-VPN" class="headerlink" title="IPsec VPN"></a>IPsec VPN</h2><p>华为ipsec vpn 对接请使用ikev2版本<br>add route ,明细路由会自动入录<br>DDNS 点对点的环境，动态公网IP（至少有一个是静态地址）DNS服务器一定要配置<br>第三方深信服 aggressive模式可能更好一些，main同厂商更好</p>
+<h2 id="SDWAN"><a href="#SDWAN" class="headerlink" title="SDWAN"></a>SDWAN</h2><p>FortiOS 7.2.x策略路由会替换掉直连路由，要关闭路由不转发<br><a target="_blank" rel="noopener" href="https://handbook.fortinet.com.cn/">https://handbook.fortinet.com.cn/</a></p>
+<h2 id="Security-Fabric"><a href="#Security-Fabric" class="headerlink" title="Security Fabric"></a>Security Fabric</h2><p>至少一个上游root设备，一个下游设备, 同时root设备与fortgate cloud，fortianlizer或 fortianlizer cloud进行对接<br>通过内网或IPsec VPN环境去做，一般不会通过公网地址去做<br>同步对象后，只能通过root防火墙去进行修改<br>Fortimanage设备比较多的情况推荐使用</p>
+<h2 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h2><p>FGCP协议将两台设备进行高可用性<br>HA要求：型号一样，固件版本，许可（都需要）许可不同时已许可少的显示<br>会话同步线，建议多增加一条单独同步线<br>端口优先级越高,设定的ha接口越优先<br>HA环境中，带外特定端口建议都做一下，便于单独登陆设备。而不是只能登陆一台主设备，方便运维考量<br>通过主防火墙，可以通过ha manage进行跳转，注意：只有cli界面可以<br>防火墙&lt;-&gt;核心，linkmonitor ip<br>通过link-monitor，可以单独对链路来做切换<br>升级会丢包，备机，业务切到备机，再升级主机。大于5分钟就存在备机上。小于5分钟还需要切换一次</p>
+<h2 id="Diagnostics-and-Troubleshooting"><a href="#Diagnostics-and-Troubleshooting" class="headerlink" title="Diagnostics and Troubleshooting"></a>Diagnostics and Troubleshooting</h2><p>防火墙本身不是日志监控的设备，只是日志监控的一个功能。如果需要看到更多信息建议通过fortianlizer或搭建第三方开源的产品例如zabbix<br>内存保护，两种情况 1.进程卡死内存过高。2.内存不足应用开启了太多7层应用通过自动脚本进行重启IPS引擎来处理</p>
+
     </div>
 
     
@@ -254,6 +276,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/12/12/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="next" title="人工智能">
+                  人工智能 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
