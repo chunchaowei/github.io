@@ -138,7 +138,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,6 +166,193 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/03/17/openclaw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="子淳">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="子淳的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 子淳的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/17/openclaw/" class="post-title-link" itemprop="url">openclaw</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-17 14:17:27 / 修改时间：15:35:45" itemprop="dateCreated datePublished" datetime="2026-03-17T14:17:27+08:00">2026-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>openclaw windows WSL2 平台部署说明：（macOS或linux部署类同）</p>
+<h3 id="前的准备工作"><a href="#前的准备工作" class="headerlink" title="前的准备工作"></a>前的准备工作</h3><ol>
+<li>node.js 22+</li>
+<li>git</li>
+</ol>
+<p>wsl –install &#x2F;&#x2F;wsl安装<br>wsl –version &#x2F;&#x2F;查看版本</p>
+<h3 id="Windows-PowerShell-全局安装设置向导"><a href="#Windows-PowerShell-全局安装设置向导" class="headerlink" title="Windows(PowerShell) 全局安装设置向导"></a>Windows(PowerShell) 全局安装设置向导</h3><p>iwr -useb <a target="_blank" rel="noopener" href="https://openclaw.ai/install.ps1">https://openclaw.ai/install.ps1</a> | iex</p>
+<h4 id="进入初始化向导-openclaw-onboard"><a href="#进入初始化向导-openclaw-onboard" class="headerlink" title="进入初始化向导 openclaw onboard"></a>进入初始化向导 openclaw onboard</h4><ol>
+<li>安装产品模型选择Qwen</li>
+<li>频道选择国内Feishu</li>
+<li>其他的继续学习和钩子后面再选</li>
+</ol>
+<h4 id="初始化完成查看-openclaw状态"><a href="#初始化完成查看-openclaw状态" class="headerlink" title="初始化完成查看 openclaw状态"></a>初始化完成查看 openclaw状态</h4><ol>
+<li>openclaw –version &#x2F;&#x2F;查看版本</li>
+<li>openclaw gateway status &#x2F;&#x2F;查看网关状态</li>
+</ol>
+<p>注意：<a target="_blank" rel="noopener" href="http://127.0.0.1:18789/">http://127.0.0.1:18789/</a> 第一次登录会提示你输入Token，使用openclaw dashboard –no-open 来显示</p>
+<img src="/2026/03/17/openclaw/openclaw-%E7%BD%91%E5%85%B3%E4%BB%AA%E8%A1%A8%E7%9B%98.png" class="" title="图片说明">
+
+<h2 id="OpenClaw接进飞书"><a href="#OpenClaw接进飞书" class="headerlink" title="OpenClaw接进飞书"></a>OpenClaw接进飞书</h2><h3 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h3><ol>
+<li>OpenClaw</li>
+<li>飞书账号</li>
+</ol>
+<h4 id="Step-1-在飞书开放平台创建应用"><a href="#Step-1-在飞书开放平台创建应用" class="headerlink" title="Step.1:在飞书开放平台创建应用"></a>Step.1:在飞书开放平台创建应用</h4><p>首先打开飞书开放平台：<br><a target="_blank" rel="noopener" href="https://open.feishu.cn/app">https://open.feishu.cn/app</a> 登录后进入开发者后台。</p>
+<img src="/2026/03/17/openclaw/%E5%BC%80%E5%8F%91%E8%80%85%E5%90%8E%E5%8F%B0.png" class="" title="图片说明">
+
+<p>接下来：点击 创建应用 → 企业自建应用</p>
+<img src="/2026/03/17/openclaw/%E4%BC%81%E4%B8%9A%E8%87%AA%E5%BB%BA%E5%BA%94%E7%94%A8.png" class="" title="图片说明">
+
+<p>然后填写应用信息：<br>应用名称（例如：OpenClaw AI 助手）描述（随便写即可）</p>
+<img src="/2026/03/17/openclaw/%E4%BC%81%E4%B8%9A%E8%87%AA%E5%BB%BA%E5%BA%94%E7%94%A82.png" class="" title="图片说明">
+
+<p>创建完成后，会进入应用详情页。在凭证与基础信息页面，你会看到两个非常重要的信息：</p>
+<p>App ID</p>
+<p>App Secret</p>
+<p>把它们保存下来，后面会用到。</p>
+<img src="/2026/03/17/openclaw/%E4%BC%81%E4%B8%9A%E8%87%AA%E5%BB%BA%E5%BA%94%E7%94%A83.png" class="" title="图片说明">
+
+<h4 id="Step-2-开启机器人能力"><a href="#Step-2-开启机器人能力" class="headerlink" title="Step.2:开启机器人能力"></a>Step.2:开启机器人能力</h4><p>在左侧菜单中找到：应用能力 → 添加应用能力</p>
+<p>选择：机器人 启用即可。</p>
+<img src="/2026/03/17/openclaw/%E6%B7%BB%E5%8A%A0%E5%BA%94%E7%94%A8%E8%83%BD%E5%8A%9B.png" class="" title="图片说明">
+
+<p>这一步的作用是：让你的应用可以在飞书里充当聊天机器人。</p>
+<h4 id="Step-3-配置应用权限"><a href="#Step-3-配置应用权限" class="headerlink" title="Step.3:配置应用权限"></a>Step.3:配置应用权限</h4><p>很多人看到权限配置就会头大，其实这里非常简单。</p>
+<p>飞书支持 批量导入权限配置。</p>
+<p>进入：</p>
+<p>权限管理 → 批量导入</p>
+<img src="/2026/03/17/openclaw/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86.png" class="" title="图片说明">
+
+<p>然后把官方推荐的 JSON 权限配置直接粘贴进去即可</p>
+<img src="/2026/03/17/openclaw/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%862.png" class="" title="图片说明">
+
+<p>{<br>  “scopes”: {<br>    “tenant”: [<br>      “contact:user.base:readonly”,<br>      “contact:user.employee_id:readonly”,<br>      “contact:user.id:readonly”,<br>      “contact:contact.base:readonly”,<br>      “im:chat”,<br>      “im:chat.access_event.bot_p2p_chat:read”,<br>      “im:chat.members:read”,<br>      “im:chat.moderation:read”,<br>      “im:chat.tabs:read”,<br>      “im:chat.tabs:write_only”,<br>      “im:chat.top_notice:write_only”,<br>      “im:chat:moderation:write_only”,<br>      “im:chat:operate_as_owner”,<br>      “im:chat:read”,<br>      “im:chat:readonly”,<br>      “im:chat:update”,<br>      “im:message”,<br>      “im:message.group_at_msg:readonly”,<br>      “im:message.group_msg”,<br>      “im:message.p2p_msg:readonly”,<br>      “im:message.pins:read”,<br>      “im:message.pins:write_only”,<br>      “im:message.reactions:read”,<br>      “im:message.reactions:write_only”,<br>      “im:message.urgent”,<br>      “im:message.urgent.status:write”,<br>      “im:message:readonly”,<br>      “im:message:send_as_bot”,<br>      “im:message:send_multi_depts”,<br>      “im:message:send_multi_users”,<br>      “im:message:send_sys_msg”,<br>      “im:message:update”,<br>      “im:resource”,<br>      “im:url_preview.update”,<br>      “im:user_agent:read”,<br>      “passport:session_mask:readonly”<br>    ],<br>    “user”: []<br>  }<br>}</p>
+<p>这样系统会自动帮你开启所需权限。这种方式比一个个勾选要方便得多，也不容易漏掉关键权限</p>
+<h4 id="Step-4-配置事件订阅"><a href="#Step-4-配置事件订阅" class="headerlink" title="Step.4:配置事件订阅"></a>Step.4:配置事件订阅</h4><p>接下来需要告诉飞书一件事：如果有人给机器人发消息，请通知 OpenClaw。<br>进入：</p>
+<p>事件与回调</p>
+<p>然后选择：</p>
+<p>使用长连接接收事件</p>
+<img src="/2026/03/17/openclaw/%E9%95%BF%E8%BF%9E%E6%8E%A5%E6%8E%A5%E6%94%B6.png" class="" title="图片说明">
+
+<p>这里非常关键。</p>
+<p>因为我们使用的是 WebSocket 长连接模式，好处非常明显：</p>
+<p>不需要公网服务器<br>不需要域名<br>本地电脑就可以直接运行<br>保存的时候，如果提示：应用未建立长连接<br>不用担心，这是因为 OpenClaw 还没有配置飞书渠道。</p>
+<p>先把这个页面放着，我们继续下一步。</p>
+<h4 id="Step-5-在OpenClaw中添加飞书渠道"><a href="#Step-5-在OpenClaw中添加飞书渠道" class="headerlink" title="Step.5:在OpenClaw中添加飞书渠道"></a>Step.5:在OpenClaw中添加飞书渠道</h4><p>现在回到终端。</p>
+<p>运行命令：openclaw channels add</p>
+<img src="/2026/03/17/openclaw/%E9%A2%91%E9%81%93.png" class="" title="图片说明">
+
+<p>然后按照提示依次选择：</p>
+<p>Feishu</p>
+<img src="/2026/03/17/openclaw/%E9%A3%9E%E4%B9%A6.png" class="" title="图片说明">
+
+<p>输入刚刚保存的 App ID和App Secret</p>
+<img src="/2026/03/17/openclaw/%E5%AE%89%E5%85%A8.png" class="" title="图片说明">
+
+<p>选择 China</p>
+<img src="/2026/03/17/openclaw/%E4%B8%AD%E5%9B%BD.png" class="" title="图片说明">
+
+<p>其他选项按默认即可，最后一定需要选择Finnish完成。</p>
+<p>配置完成后，重启网关：openclaw gateway restart 如遇到重启不起来，通过手动运行openclaw gateway run</p>
+<h4 id="Step-6-回到飞书完成事件订阅"><a href="#Step-6-回到飞书完成事件订阅" class="headerlink" title="Step.6:回到飞书完成事件订阅"></a>Step.6:回到飞书完成事件订阅</h4><p>回到刚才的飞书后台页面。再次点击保存。这次就不会再报错了。</p>
+<img src="/2026/03/17/openclaw/%E4%BA%8B%E4%BB%B6%E8%AE%A2%E9%98%85.png" class="" title="图片说明">
+
+<p>然后新增一个事件：im.message.receive_v1</p>
+<img src="/2026/03/17/openclaw/%E6%B7%BB%E5%8A%A0%E4%BA%8B%E4%BB%B6.png" class="" title="图片说明">
+
+<p>这个事件的作用是： 当用户给机器人发送消息时，通知 OpenClaw。</p>
+<h4 id="Step-7-发布应用"><a href="#Step-7-发布应用" class="headerlink" title="Step.7:发布应用"></a>Step.7:发布应用</h4><p>配置完成后，还需要发布一次应用。</p>
+<p>进入：版本管理与发布</p>
+<p>点击：创建版本</p>
+<img src="/2026/03/17/openclaw/%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC.png" class="" title="图片说明">
+
+<p>填写：版本号 更新说明 然后点击发布。</p>
+<img src="/2026/03/17/openclaw/%E7%89%88%E6%9C%AC%E8%AF%A6%E6%83%85.png" class="" title="图片说明">
+
+<h4 id="Step-8-测试机器人"><a href="#Step-8-测试机器人" class="headerlink" title="Step.8:测试机器人"></a>Step.8:测试机器人</h4><p>现在打开飞书。</p>
+<p>搜索你刚刚创建的机器人名称。</p>
+<img src="/2026/03/17/openclaw/%E6%90%9C%E7%B4%A2%E6%9C%BA%E5%99%A8%E4%BA%BA.png" class="" title="图片说明">
+
+<p>给它随便发送一条消息。 第一次聊天时，机器人会返回一个 配对码</p>
+<img src="/2026/03/17/openclaw/%E9%85%8D%E5%AF%B9%E7%A0%81.png" class="" title="图片说明">
+
+<p>回到终端执行：openclaw pairing approve feishu &lt;配对码&gt;</p>
+<img src="/2026/03/17/openclaw/%E9%85%8D%E5%AF%B9%E7%A0%812.png" class="" title="图片说明">
+
+<p>批准之后，再发消息试试。</p>
+<p>这时候你会发现： AI 已经可以在飞书里正常回复你了。</p>
+<p>整个体验就像和同事聊天一样自然。</p>
+<img src="/2026/03/17/openclaw/%E8%81%8A%E5%A4%A9.png" class="" title="图片说明">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -289,7 +476,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-26 19:55:21" itemprop="dateModified" datetime="2025-12-26T19:55:21+08:00">2025-12-26</time>
+      <time title="修改时间：2025-12-30 09:36:16" itemprop="dateModified" datetime="2025-12-30T09:36:16+08:00">2025-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,9 +507,9 @@
 <h2 id="Fortinet-Single-Sign-On-FSSO"><a href="#Fortinet-Single-Sign-On-FSSO" class="headerlink" title="Fortinet Single Sign-On(FSSO)"></a>Fortinet Single Sign-On(FSSO)</h2><p>FSSO  agent安装,需要有一个可以读取日志的权限<br>combination用户排除，不想对某些用户进行无感知认证</p>
 <h2 id="Antivirus-Web-Filtering"><a href="#Antivirus-Web-Filtering" class="headerlink" title="Antivirus &amp; Web Filtering"></a>Antivirus &amp; Web Filtering</h2><p>对延时敏感开流模式，对安全检查要求高的开代理模式</p>
 <h2 id="Certificate"><a href="#Certificate" class="headerlink" title="Certificate"></a>Certificate</h2><p>subject or san对返回的SNI字段进行验证，通过sni中获得他的url<br>没有导入用户的证书，建议客户导入证书<br>老的系统如win7 没有sni识别标记，需要服务器数字证书进行签名和验证<br>web过滤和用户验证 会遇到SSL证书检测<br>SSL深度检测，forti启用到类似代理的重用用自己的key进行加密&#x2F;解密 （会有延迟）<br>分为两类检测：流模式检测和深度检测<br>开启7层检测，需要用户有证书，必须导入，换证书需要进行自定义克隆进行修改，需深入了解，查看RFC5280</p>
-<h2 id="IPS-adn-Application-Control"><a href="#IPS-adn-Application-Control" class="headerlink" title="IPS adn Application Control"></a>IPS adn Application Control</h2><p>上面宽泛，下面明细，可以上面对特定的进行证书检测，最下面对所有做深度检测<br>IPS引擎：AV，appcontrol（始终基于流模式），自定义优先级高于categories分类优先级<br>进行抓包，通过Forti团队再去写对应的应用特征签名</p>
+<h2 id="IPS-and-Application-Control"><a href="#IPS-and-Application-Control" class="headerlink" title="IPS and Application Control"></a>IPS and Application Control</h2><p>上面宽泛，下面明细，可以上面对特定的进行证书检测，最下面对所有做深度检测<br>IPS引擎：AV，appcontrol（始终基于流模式），自定义优先级高于categories分类优先级<br>进行抓包，通过Forti团队再去写对应的应用特征签名</p>
 <h2 id="SSL-VPN"><a href="#SSL-VPN" class="headerlink" title="SSL VPN"></a>SSL VPN</h2><p>FortiOS 7.6.3之后没有免费的SSLVPN，要用使用收费的Forticlient VPN，直接用IPsec<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125">https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125</a></p>
-<h2 id="IPsec-VPN"><a href="#IPsec-VPN" class="headerlink" title="IPsec VPN"></a>IPsec VPN</h2><p>华为ipsec vpn 对接请使用ikev2版本<br>add route ,明细路由会自动入录<br>DDNS 点对点的环境，动态公网IP（至少有一个是静态地址）DNS服务器一定要配置<br>第三方深信服 aggressive模式可能更好一些，main同厂商更好</p>
+<h2 id="IPsec-VPN"><a href="#IPsec-VPN" class="headerlink" title="IPsec VPN"></a>IPsec VPN</h2><p>华为ipsec vpn 对接请使用ikev2版本<br>add route ,明细路由会自动入录<br>DDNS 点对点的环境，动态公网IP（至少有一个是静态地址）DNS服务器一定要配置<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815">https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815</a><br>第三方深信服 aggressive模式可能更好一些，main同厂商更好</p>
 <h2 id="SDWAN"><a href="#SDWAN" class="headerlink" title="SDWAN"></a>SDWAN</h2><p>FortiOS 7.2.x策略路由会替换掉直连路由，要关闭路由不转发<br><a target="_blank" rel="noopener" href="https://handbook.fortinet.com.cn/">https://handbook.fortinet.com.cn/</a></p>
 <h2 id="Security-Fabric"><a href="#Security-Fabric" class="headerlink" title="Security Fabric"></a>Security Fabric</h2><p>至少一个上游root设备，一个下游设备, 同时root设备与fortgate cloud，fortianlizer或 fortianlizer cloud进行对接<br>通过内网或IPsec VPN环境去做，一般不会通过公网地址去做<br>同步对象后，只能通过root防火墙去进行修改<br>Fortimanage设备比较多的情况推荐使用</p>
 <h2 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h2><p>FGCP协议将两台设备进行高可用性<br>HA要求：型号一样，固件版本，许可（都需要）许可不同时已许可少的显示<br>会话同步线，建议多增加一条单独同步线<br>端口优先级越高,设定的ha接口越优先<br>HA环境中，带外特定端口建议都做一下，便于单独登陆设备。而不是只能登陆一台主设备，方便运维考量<br>通过主防火墙，可以通过ha manage进行跳转，注意：只有cli界面可以<br>防火墙&lt;-&gt;核心，linkmonitor ip<br>通过link-monitor，可以单独对链路来做切换<br>升级会丢包，备机，业务切到备机，再升级主机。大于5分钟就存在备机上。小于5分钟还需要切换一次</p>
@@ -486,9 +673,9 @@
 <p>Bash</p>
 <p>hexo deploy # 简称 hexo d</p>
 <h1 id="配置-Git-用户身份"><a href="#配置-Git-用户身份" class="headerlink" title="配置 Git 用户身份"></a>配置 Git 用户身份</h1><p>您只需按照提示，在您的 Windows 命令行（PowerShell 或 Command Prompt）中运行两条命令，设置您的全局 Git 用户名和电子邮件地址即可。</p>
-<p>设置用户电子邮件： 将下面的 “<a href="mailto:&#121;&#x6f;&#x75;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#121;&#x6f;&#x75;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a>“ 替换为您自己的邮箱地址。</p>
+<p>设置用户电子邮件： 将下面的 “<a href="mailto:&#121;&#111;&#x75;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#111;&#109;">&#121;&#111;&#x75;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#111;&#109;</a>“ 替换为您自己的邮箱地址。</p>
 <p>Bash</p>
-<p>git config –global user.email “<a href="mailto:&#121;&#x6f;&#117;&#114;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;">&#121;&#x6f;&#117;&#114;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a>“<br>设置用户名称： 将 “Your Name” 替换为您的名字或您希望显示的用户名。</p>
+<p>git config –global user.email “<a href="mailto:&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#105;&#108;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#x6d;&#x61;&#105;&#108;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a>“<br>设置用户名称： 将 “Your Name” 替换为您的名字或您希望显示的用户名。</p>
 <p>Bash</p>
 <p>git config –global user.name “Your Name”</p>
 
@@ -746,7 +933,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
