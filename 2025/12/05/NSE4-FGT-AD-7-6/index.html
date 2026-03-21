@@ -28,7 +28,7 @@
 <meta property="og:description" content="FortiGate Infrastructure  System&amp;Network&amp;Setting接口下 Administrative Access FTM 当Fortitoken连接时需要打开接口下 Administrative Access FMG-Access 只用来连接Fortimanage时需要打开接口下 Administrative Access Security Fab">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-05T02:13:14.000Z">
-<meta property="article:modified_time" content="2026-03-18T07:04:06.123Z">
+<meta property="article:modified_time" content="2026-03-20T07:41:41.234Z">
 <meta property="article:author" content="子淳">
 <meta property="article:tag" content="FortiGate">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-18 15:04:06" itemprop="dateModified" datetime="2026-03-18T15:04:06+08:00">2026-03-18</time>
+      <time title="修改时间：2026-03-20 15:41:41" itemprop="dateModified" datetime="2026-03-20T15:41:41+08:00">2026-03-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -248,15 +248,34 @@
 <p>ECMP 等价多路径路由（与sdwan分开）<br>目的子网，距离，开销，优先级ECMP路由创建在RIB中，流量在路由之间进行负载均衡（同类型路由）<br>路由级高于接口权重优先级</p>
 <h2 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h2><p>FortiToken软件目前没法迁移，比如Foti100E上200个token，不能将软token迁移到forti200E<br>FAC 身份认证服务器进行绑定</p>
 <h2 id="Fortinet-Single-Sign-On-FSSO"><a href="#Fortinet-Single-Sign-On-FSSO" class="headerlink" title="Fortinet Single Sign-On(FSSO)"></a>Fortinet Single Sign-On(FSSO)</h2><p>FSSO  agent安装,需要有一个可以读取日志的权限<br>combination用户排除，不想对某些用户进行无感知认证</p>
-<h2 id="Antivirus-Web-Filtering"><a href="#Antivirus-Web-Filtering" class="headerlink" title="Antivirus &amp; Web Filtering"></a>Antivirus &amp; Web Filtering</h2><p>对延时敏感开流模式，对安全检查要求高的开代理模式</p>
+<h2 id="Antivirus-Web-Filtering"><a href="#Antivirus-Web-Filtering" class="headerlink" title="Antivirus &amp; Web Filtering"></a>Antivirus &amp; Web Filtering</h2><p>对延时敏感开流模式，对安全检查要求高的开代理模式<br>CIFS 文件共享检测需要开启<br>代理模式时：开启Comfort Clients会好一些</p>
 <h2 id="Certificate"><a href="#Certificate" class="headerlink" title="Certificate"></a>Certificate</h2><p>subject or san对返回的SNI字段进行验证，通过sni中获得他的url<br>没有导入用户的证书，建议客户导入证书<br>老的系统如win7 没有sni识别标记，需要服务器数字证书进行签名和验证<br>web过滤和用户验证 会遇到SSL证书检测<br>SSL深度检测，forti启用到类似代理的重用用自己的key进行加密&#x2F;解密 （会有延迟）<br>分为两类检测：流模式检测和深度检测<br>开启7层检测，需要用户有证书，必须导入，换证书需要进行自定义克隆进行修改，需深入了解，查看RFC5280</p>
 <h2 id="IPS-and-Application-Control"><a href="#IPS-and-Application-Control" class="headerlink" title="IPS and Application Control"></a>IPS and Application Control</h2><p>上面宽泛，下面明细，可以上面对特定的进行证书检测，最下面对所有做深度检测<br>IPS引擎：AV，appcontrol（始终基于流模式），自定义优先级高于categories分类优先级<br>进行抓包，通过Forti团队再去写对应的应用特征签名</p>
 <h2 id="SSL-VPN"><a href="#SSL-VPN" class="headerlink" title="SSL VPN"></a>SSL VPN</h2><p>FortiOS 7.6.3之后没有免费的SSLVPN，要用使用收费的Forticlient VPN，直接用IPsec<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125">https://community.fortinet.com/t5/FortiGate/Technical-Tip-SSL-VPN-support-on-FortiGate-models/ta-p/359125</a></p>
-<h2 id="IPsec-VPN"><a href="#IPsec-VPN" class="headerlink" title="IPsec VPN"></a>IPsec VPN</h2><p>华为ipsec vpn 对接请使用ikev2版本<br>add route ,明细路由会自动入录<br>DDNS 点对点的环境，动态公网IP（至少有一个是静态地址）DNS服务器一定要配置<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815">https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815</a><br>第三方深信服 aggressive模式可能更好一些，main同厂商更好</p>
-<h2 id="SDWAN"><a href="#SDWAN" class="headerlink" title="SDWAN"></a>SDWAN</h2><p>FortiOS 7.2.x策略路由会替换掉直连路由，要关闭路由不转发<br><a target="_blank" rel="noopener" href="https://handbook.fortinet.com.cn/">https://handbook.fortinet.com.cn/</a></p>
+<h2 id="IPsec-VPN"><a href="#IPsec-VPN" class="headerlink" title="IPsec VPN"></a>IPsec VPN</h2><p>华为ipsec vpn 对接请使用ikev2版本<br>add route ,明细路由会自动入录<br>DDNS 点对点的环境，动态公网IP（至少有一个是静态地址）DNS服务器一定要配置<br><a target="_blank" rel="noopener" href="https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815">https://community.fortinet.com/t5/FortiGate/Technical-Tip-IPsec-VPN-between-static-and-dynamic-IP-FQDN/ta-p/191815</a><br>第三方深信服 aggressive模式可能更好一些，main同厂商更好<br>两边vpn网关设备配置ike阶段1和2后，需要添加安全策略进行放行（不用开启nat）<br>安全策略这边可以在ike阶段去限制源和目的的数据包，及路由去限制。<br>注意：前提两端设备之间udp：500端口要能通的前提.<br>diagnose sniffer packet any “host 100.1.1.1 and udp port 500” 4 0 l</p>
+<p>IPSec模式，加密算法和校验算法，ike1和ike2的兼容性，子网IP，路由指向接口，添加目的子网接口黑洞的黑洞路由。&#x2F;&#x2F;Ipsec路由失效时可以被丢弃<br>冗余VPN，通过管理距离进行配置，比如优先的tunnel1 distance 5，次优先的tunnel2 distance 10.</p>
+<ol>
+<li>查看接口vpn是否up</li>
+<li>系统事件 -&gt; vpn事件</li>
+<li>一本通：vpn -&gt; 排错<br>输出所有IPSEC协商信息<br>diagnose debug application ike -1<br>diagnose debug enable</li>
+</ol>
+<p>注意：如果遇到IPsec无法建立，客户有需要使用vpn时，用GREVPN来实现吧。<br>config system gre-tunnel<br>    edit “to-fgt_bj”<br>        set interface “port2”<br>        set remote-gw 100.1.1.3<br>        set local-gw 201.1.1.3<br>    next<br>end</p>
+<h2 id="SDWAN"><a href="#SDWAN" class="headerlink" title="SDWAN"></a>SDWAN</h2><p>基于客户现有的线路进行优化的SDWAN技术方案<br>FortiOS 7.2.x策略路由会替换掉直连路由，要关闭路由不转发，选择更低优先级路由。<br><a target="_blank" rel="noopener" href="https://handbook.fortinet.com.cn/">https://handbook.fortinet.com.cn/</a></p>
+<p>成员，Zone,Performance SLA,SD-WAN规则（比策略路由优先级低，但高于普通优先级）</p>
 <h2 id="Security-Fabric"><a href="#Security-Fabric" class="headerlink" title="Security Fabric"></a>Security Fabric</h2><p>至少一个上游root设备，一个下游设备, 同时root设备与fortgate cloud，fortianlizer或 fortianlizer cloud进行对接<br>通过内网或IPsec VPN环境去做，一般不会通过公网地址去做<br>同步对象后，只能通过root防火墙去进行修改<br>Fortimanage设备比较多的情况推荐使用</p>
-<h2 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h2><p>FGCP协议将两台设备进行高可用性<br>HA要求：型号一样，固件版本，许可（都需要）许可不同时已许可少的显示<br>会话同步线，建议多增加一条单独同步线<br>端口优先级越高,设定的ha接口越优先<br>HA环境中，带外特定端口建议都做一下，便于单独登陆设备。而不是只能登陆一台主设备，方便运维考量<br>通过主防火墙，可以通过ha manage进行跳转，注意：只有cli界面可以<br>防火墙&lt;-&gt;核心，linkmonitor ip<br>通过link-monitor，可以单独对链路来做切换<br>升级会丢包，备机，业务切到备机，再升级主机。大于5分钟就存在备机上。小于5分钟还需要切换一次</p>
+<h2 id="High-Availability"><a href="#High-Availability" class="headerlink" title="High Availability"></a>High Availability</h2><p>FGCP协议将两台设备进行高可用性<br>HA要求：型号一样，固件版本build号，许可（都需要）许可不同时，已许可最低级别的许可证显示<br>会话同步线，建议多增加一条单独同步线<br>端口优先级越高,设定的ha接口越优先<br>HA环境中，带外特定端口建议都做一下，便于单独登陆设备。而不是只能登陆一台主设备，方便运维考量<br>通过主防火墙，可以通过ha manage进行跳转，注意：只有cli界面可以<br>exe ha manage <member_id> <admin_username><br>exe ha manage 0 admin &#x2F;&#x2F;切换到备设备上。</p>
+<p>防火墙&lt;-&gt;核心，linkmonitor ip<br>通过link-monitor，可以单独对链路来做切换<br>升级会丢包，备机，业务切到备机，再升级主机。大于5分钟就存在备机上。小于5分钟还需要切换一次<br>做HA时把DHCP接口关闭<br>Override(默认关闭) 抢占模式<br>监控接口数 -&gt; 运行时间 -&gt; 设备优先级 - &gt; 设备序列号<br>dia sys ha reset-uptime 对备机有效时间重置</p>
+<p>HA ping Server来检查物理口UP的假死状态</p>
+<p>dia sys ha check校验和<br>dia sys ha checksum show</p>
 <h2 id="Diagnostics-and-Troubleshooting"><a href="#Diagnostics-and-Troubleshooting" class="headerlink" title="Diagnostics and Troubleshooting"></a>Diagnostics and Troubleshooting</h2><p>防火墙本身不是日志监控的设备，只是日志监控的一个功能。如果需要看到更多信息建议通过fortianlizer或搭建第三方开源的产品例如zabbix<br>config log disk setting<br>  set maximum-log-age <integer><br>内存保护，两种情况 1.进程卡死内存过高。2.内存不足应用开启了太多7层应用通过自动脚本进行重启IPS引擎来处理</p>
+<ol>
+<li><p>Sniffer抓包命令：<br>diagnose sniffer packet any “host 100.1.1.1 and udp port 500” 4 0 l</p>
+</li>
+<li><p>Debug诊断命令：<br>diagnose debug flow filter saddr x.x.x.x<br>diagnose debug flow filter proto 1<br>diagnose debug flow show function-name enable<br>diagnose debug console timestamp enable<br>diagnose debug flow trace start 10<br>diagnose debug enable</p>
+</li>
+<li><p>CPU和内存高故障排查-CLI：<br>diagnose sys top</p>
+</li>
+</ol>
 
     </div>
 
